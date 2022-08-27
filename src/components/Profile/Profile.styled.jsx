@@ -13,7 +13,6 @@ export const Avatar = styled.img`
 width: ${props => props.size};
 border-radius: 50%;
 `
-const a = styled.a``
 export const Stats = styled.ul`
 display:flex;
 `
