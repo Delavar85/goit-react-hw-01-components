@@ -1,14 +1,14 @@
-import { Conteiner, Name, Tag, Location, Avatar, Stats,StatsList, Label, Quantity } from "./Profile.styled";
-import {  } from "./user";
+import PropTypes from 'prop-types';
+import { Conteiner, Name, Tag, Location, Avatar, Stats, StatsList, Label, Quantity, Description } from "./Profile.styled";
 export const Profile = ({userName,tag,location,avatar,stats}) => {
     return (
         <Conteiner>
-            <Conteiner>
-                <Avatar alt='User avatar' src={avatar} size='80px'></Avatar>
+            <Description>
+                <Avatar alt='User avatar' src={avatar} size='100px'></Avatar>
                 <Name>{userName}</Name>
                 <Tag>@{tag}</Tag>
                 <Location>{location}</Location>
-            </Conteiner>
+            </Description>
             <Stats>
                 <StatsList>
                     <Label>followers</Label>
@@ -24,6 +24,16 @@ export const Profile = ({userName,tag,location,avatar,stats}) => {
         </Conteiner>
     )
 }
-
+Profile.propTypes = {
+    userName: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    stats: PropTypes.shape({
+        followers: PropTypes.number.isRequired,
+        views: PropTypes.number.isRequired,
+        likes:PropTypes.number.isRequired,
+    })
+}
 
 
